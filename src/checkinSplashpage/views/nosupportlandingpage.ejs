@@ -1,0 +1,22 @@
+<html>
+
+<head>
+
+<body>
+   <script>
+      debugger;
+      if (typeof localStorage !== "undefined") {
+         if (typeof localStorage.getItem("redirectUrl") != "undefined" && localStorage.getItem("redirectUrl") != null) {
+            window.location.href = localStorage.getItem("redirectUrl");
+         }
+         else {
+            window.location.href = "<%=landingpage %>"
+         }
+      }
+      else {
+         window.location.href = "<%=landingpage %>"
+      }
+   </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VAST xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vast.xsd" version="3.0">
+ <Ad id="<%= bId %>">
+  <InLine>
+   <AdSystem>GDFP</AdSystem>
+   <AdTitle><%= bId %></AdTitle>
+   <Description><![CDATA[<%= bId %>]]></Description>
+   <Creatives>
+    <Creative id="<%= bId %>" sequence="1">
+     <Linear<%- skipoffset %>>
+      <Duration><%- countdown %></Duration>
+      <TrackingEvents>
+        <Tracking event="start"><![CDATA[<%-tracking.start%>]]></Tracking>
+        <Tracking event="firstQuartile"><![CDATA[<%-tracking.firstQuartile%>]]></Tracking>
+        <Tracking event="midpoint"><![CDATA[<%-tracking.midpoint%>]]></Tracking>
+        <Tracking event="thirdQuartile"><![CDATA[<%-tracking.thirdQuartile%>]]></Tracking>
+        <Tracking event="complete"><![CDATA[<%-tracking.complete%>]]></Tracking>        
+      </TrackingEvents>
+      <VideoClicks>
+      <ClickThrough id="GDFP"></ClickThrough>
+      </VideoClicks>
+      <MediaFiles>
+       <MediaFile id="GDFP" delivery="progressive" width="1280" height="720" type="video/mp4" bitrate="450" scalable="true" maintainAspectRatio="true"><![CDATA[<%= video_url %>]]></MediaFile>
+      </MediaFiles>
+     </Linear>
+    </Creative>
+   </Creatives>
+  </InLine>
+ </Ad>
+</VAST>

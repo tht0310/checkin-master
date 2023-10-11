@@ -1,0 +1,36 @@
+################################################################################
+# CiscoWLAN.dct- Cisco Wireless Lan Controllers
+#
+# (See README.DCT for more details on the format of this file)
+################################################################################
+
+# Dictionary - Cisco WLAN Controllers
+#
+# Start with the standard Radius specification attributes
+#
+@radius.dct
+#
+# Standard attributes supported by Airespace
+#
+# Define additional vendor specific attributes (VSAs)
+#
+
+MACRO Airespace-VSA(t,s) 26 [vid=14179 type1=%t% len1=+2 data=%s%]
+
+ATTRIBUTE   WLAN-Id                 Airespace-VSA(1, integer)     cr
+ATTRIBUTE   Aire-QoS-Level 	 	 	 	 	Airespace-VSA(2, integer)     r
+VALUE Aire-QoS-Level Bronze 	 		3
+VALUE Aire-QoS-Level Silver     0
+VALUE Aire-QoS-Level Gold       1
+VALUE Aire-QoS-Level Platinum   2
+
+ATTRIBUTE   DSCP                    Airespace-VSA(3, integer)     r
+ATTRIBUTE   802.1P-Tag              Airespace-VSA(4, integer)     r
+ATTRIBUTE   Interface-Name          Airespace-VSA(5, string)      r
+ATTRIBUTE   ACL-Name                Airespace-VSA(6, string)      r
+
+# This should be last.
+
+################################################################################
+# CiscoWLAN.dct - Cisco WLC dictionary
+############################################################################## 

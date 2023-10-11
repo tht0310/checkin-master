@@ -1,0 +1,23 @@
+VENDOR          CambiumVendor                   17713
+
+BEGIN-VENDOR    CambiumVendor
+
+ATTRIBUTE   CAMB-Traffic-Quota-Limit-Up             151     integer
+ATTRIBUTE   CAMB-Traffic-Quota-Limit-Down           152     integer
+ATTRIBUTE   CAMB-Traffic-Quota-Limit-Up-Gigwords    153     integer
+ATTRIBUTE   CAMB-Traffic-Quota-Limit-Down-Gigwords  154     integer
+ATTRIBUTE   CAMB-Traffic-Quota-Limit-Total          155     integer
+ATTRIBUTE   CAMB-Traffic-Quota-Limit-Total-Gigwords 156     integer
+ATTRIBUTE   Cambium-Vlan-Pool-Id                    157     string
+ATTRIBUTE   CAMB-Authorize-Classes                  158     tlv
+ATTRIBUTE   CAMB-Traffic-Classes-Acct               159     tlv
+ATTRIBUTE   CAMB-Walled-Garden-State                160     integer
+ATTRIBUTE   CAMB-Authorize-Class-Name               158.1   string
+ATTRIBUTE   CAMB-Authorize-Bytes-Left               158.2   integer64
+ATTRIBUTE   CAMB-Acct-Class-Name                    159.1   string
+ATTRIBUTE   CAMB-Acct-Input-Octets                  159.2   integer
+ATTRIBUTE   CAMB-Acct-Output-Octets                 159.3   integer
+ATTRIBUTE   CAMB-Acct-Input-Packets                 159.4   integer
+ATTRIBUTE   CAMB-Acct-Output-Packets                159.4   integer
+
+END-VENDOR      CambiumVendor

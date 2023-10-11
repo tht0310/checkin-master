@@ -1,0 +1,1191 @@
+<style>
+:root {
+    --primary-color: #005198;
+    --gradient1-color: #89012f;
+    --gradient2-color: #005198;
+}
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    button {
+        outline: none;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    html,
+    body {
+        height: 100%;
+    }
+
+    body {
+        padding: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .noselect {
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    #becawifi_main {
+        margin: 0 auto;
+        max-width: 100%;
+        overflow: hidden;
+        height: 100%;
+    }
+
+    #becawifi_main>.wrapper {
+        padding: 0 15px;
+        position: relative;
+        background: -webkit-linear-gradient(0deg, #89012f, #005198);
+        background: linear-gradient(0deg, #89012f, #005198);
+        height: 100%;
+    }
+
+    #becawifi_main .wrapper .top {
+        position: relative;
+        padding: 30px 10px;
+        text-align: center;
+        z-index: 200;
+    }
+
+    #becawifi_main .wrapper .top .meta .logo {
+        position: absolute;
+        top: 10px;
+        left: 0;
+        width: 130px;
+    }
+
+    #becawifi_main .wrapper .top .meta .tool {
+        position: absolute;
+        top: 20px;
+        right: 0;
+        display: flex;
+    }
+
+    #becawifi_main .wrapper .top .meta .tool>div {
+        margin-left: 20px;
+        position: relative;
+    }
+
+    #becawifi_main .wrapper .top .meta .tool>div i {
+        font-size: 18px;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    #becawifi_main .wrapper .top .meta .tool>div .badge {
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-radius: 50%;
+        background: red;
+        color: #fff;
+        padding: 0;
+        width: 8px;
+        height: 8px;
+        font-size: 11px;
+        margin: 0px;
+        display: none;
+    }
+
+    #becawifi_main .wrapper .top .meta .tool>div.active .badge {
+        display: block;
+    }
+
+    #becawifi_main .wrapper>.content {
+        position: relative;
+        margin-top: 0;
+        padding: 20px 15px;
+        height: calc(100% - 90px);
+        overflow: visible;
+    }
+
+    #becawifi_main .wrapper .content .container {
+        width: 100%;
+        height: 100%;
+        background: #fafafa;
+        padding: 0;
+        position: relative;
+        margin: 0;
+        border-radius: 1px;
+        border: 1px solid #eee;
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+    }
+
+    #becawifi_main .wrapper .content .container .extra {
+        padding: 10px;
+        padding-bottom: 0px;
+        margin-top: 100px;
+        margin-bottom: 50px;
+        width: 100%;
+        height: calc(100% - 145px);
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #becawifi_main div::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    #becawifi_main div::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+
+    #becawifi_main div::-webkit-scrollbar-thumb {
+        background: transparent;
+    }
+
+    #becawifi_main div:hover::-webkit-scrollbar-thumb {
+        background: var(--primary-color);
+    }
+
+    #becawifi_main .wrapper>.content:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 85%;
+        background: #fafafa;
+        opacity: 0.5;
+        transform: translate(-50%, -50%);
+        border-radius: 5px;
+    }
+
+    #becawifi_main .wrapper .content .info {
+        position: absolute;
+        top: -61px;
+        z-index: 1000;
+        text-align: center;
+        width: 100%;
+        color: #555;
+    }
+
+    #becawifi_main .wrapper .content .info .avatar {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        padding: 20px;
+        margin: 0 auto;
+    }
+
+    #becawifi_main .wrapper .content .info .avatar img {
+        position: relative;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+        transform: translateY(-50%);
+        border-radius: 50%;
+        border: 3px solid #fafafa;
+        z-index: -1;
+        background: #fafafa;
+        overflow: hidden;
+    }
+
+    #becawifi_main .wrapper .content .info .greeting {
+        margin: 0 0 5px 0;
+        color: #555;
+        font-size: 15px;
+    }
+
+    #becawifi_main .wrapper .content .info .date {
+        margin: 0 0 5px 0;
+        color: #555;
+        font-size: 13px;
+        background: #fafafa;
+    }
+
+    #becawifi_main .wrapper .content .menu {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        z-index: 1000;
+    }
+
+    #becawifi_main .wrapper .content .menu>div {
+        width: 35px;
+        height: 35px;
+        background: var(--primary-color);
+        border-radius: 50%;
+        text-align: center;
+        line-height: 35px;
+        color: #fafafa;
+        margin: 0 20px;
+    }
+
+    #becawifi_main .wrapper .content .menu>div>i {
+        line-height: 35px;
+    }
+
+
+    #becawifi_main .wrapper .content .menu .touch-zone {
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        margin: 0;
+        cursor: pointer;
+        background: var(--primary-color);
+    }
+
+    #becawifi_main .wrapper .content .menu .touch-zone .cover {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 80px;
+        height: 0;
+        overflow: hidden;
+        /* border-radius: 50%; */
+    }
+
+    #becawifi_main .wrapper .content .menu .touch-zone .touch-image {
+        width: 80px;
+        height: 80px;
+        margin: 0;
+        background-image: url("/public/checkin/touch_id.png");
+        background-size: 65px;
+        background-repeat: no-repeat;
+        background-position: center;
+        opacity: .5;
+        filter: brightness(5);
+    }
+
+    #becawifi_main .wrapper .content .menu .touch-zone .touch-image-hold {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 80px;
+        height: 80px;
+        margin: 0;
+        background-image: url("/public/checkin/touch_id_hold.png");
+        background-size: 65px;
+        background-repeat: no-repeat;
+        background-position: center;
+        filter: saturate(0);
+    }
+
+    #becawifi_main .wrapper .content .quote {
+        padding: 30px 20px 25px 20px;
+        /* background: #fff; */
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        position: relative;
+        text-align: right;
+        /* overflow: hidden; */
+    }
+
+    #becawifi_main .wrapper .content .quote span {
+        position: absolute;
+        font-size: 25px;
+        color: var(--primary-color);
+        z-index: 49;
+        /* filter: drop-shadow(0px 1px 15px #777); */
+        background: #fafafa;
+        padding: 8px;
+        line-height: 0px;
+        width: 40px;
+        height: 40px;
+        border-radius: 5px;
+    }
+
+    #becawifi_main .wrapper .content .quote span.quote-left {
+        top: -8px;
+        left: -8px;
+    }
+
+    #becawifi_main .wrapper .content .quote span.quote-right {
+        bottom: -8px;
+        right: -8px;
+    }
+
+    #becawifi_main .wrapper .content .quote p {
+        position: relative;
+        z-index: 50;
+        font-size: 14px;
+        font-family: serif;
+        font-style: italic;
+        color: #555;
+        font-weight: bold;
+        line-height: 18px
+    }
+
+    #becawifi_main .wrapper .content .quote p.text {
+        text-align: left;
+    }
+
+    #becawifi_main .wrapper .content .quote p.author {
+        margin-top: 5px;
+        padding: 0 5px;
+        font-weight: 400;
+        position: relative;
+        background: #fafafa;
+        display: inline-block;
+        z-index: 50;
+    }
+
+    #becawifi_main .wrapper .content .quote p.author:before {
+        position: absolute;
+        content: '';
+        width: 8px;
+        height: 1px;
+        background: #555;
+        top: 50%;
+        right: 100%;
+        transform: translateY(-50%);
+    }
+
+    #becawifi_main .wrapper .content .quote p.author:after {
+        position: absolute;
+        content: '';
+        width: 8px;
+        height: 1px;
+        background: #555;
+        top: 50%;
+        left: 100%;
+        transform: translateY(-50%);
+    }
+
+    #becawifi_main .wrapper .content .reason {
+        margin-top: 10px;
+        margin-right: 10px;
+        padding: 15px 10px 10px 10px;
+        border: 1px solid var(--primary-color);
+        border-radius: 5px;
+        position: relative;
+
+    }
+
+    #becawifi_main .wrapper .content .reason .reason-wrapper {
+        max-height: calc(100vh - 410px);
+        overflow-x: hidden;
+    }
+
+    #becawifi_main .wrapper .content .reason .reason-wrapper::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    #becawifi_main .wrapper .content .reason .reason-wrapper::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    #becawifi_main .wrapper .content .reason .reason-wrapper::-webkit-scrollbar-thumb {
+        background: transparent;
+    }
+
+    #becawifi_main .wrapper .content .reason .reason-wrapper:hover::-webkit-scrollbar-thumb {
+        background: var(--primary-color);
+    }
+
+    #becawifi_main .wrapper .content .reason::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 8px;
+        content: "\f29c";
+        font: normal normal normal 40px/1 FontAwesome;
+        background: #fafafa;
+        transform: translate(50%, -50%);
+        color: var(--primary-color);
+        line-height: 35px;
+    }
+
+    #becawifi_main .wrapper .content .reason .reason-heading {
+        position: absolute;
+        top: 0;
+        left: 10px;
+        font-size: 15px;
+        color: #f9af66;
+        background: #fafafa;
+        padding: 10px;
+        transform: translateY(-50%)
+    }
+
+    #becawifi_main .wrapper .content #checkin__wrapper {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+    }
+
+    #becawifi_main .wrapper .content #error__wrapper {
+        display: none;
+        text-align: center;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #555;
+        width: 100%;
+    }
+
+    .fake-control input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+
+    }
+
+    .checkmark {
+        display: inline-block;
+        line-height: 1;
+        vertical-align: middle;
+    }
+
+    .fake-control:hover input~.checkmark {
+        opacity: .5;
+    }
+
+    .fake-control input:checked~.checkmark {
+        opacity: 1;
+    }
+
+    .fake-control .checkmark:after {
+        font-family: FontAwesome, simple-line-icons;
+        color: var(--main-color);
+        vertical-align: top;
+    }
+
+    .fake-control.radio .checkmark:after {
+        content: "\f1db";
+        font-size: 18px;
+    }
+
+    .fake-control.radio input:checked~.checkmark:after {
+        content: "\f192";
+        color: var(--primary-color);
+    }
+
+    .group-control {
+        margin: 20px 10px;
+        display: flex;
+        align-items: center;
+        color: #555;
+    }
+
+    .group-control .fake-control {
+        margin-right: 20px;
+    }
+
+    .group-control span {
+        font-size: 14px;
+    }
+
+    #becawifi_main .wrapper .content .birthday {
+        flex-direction: column;
+        flex: 1;
+        margin-top: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        overflow: hidden;
+        background: #fff;
+    }
+
+    #becawifi_main .wrapper .content .birthday .heading {
+        margin: 0;
+        padding: 10px 17px;
+        text-transform: uppercase;
+        font-size: 14px;
+        color: #5c788e;
+        position: relative;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(90deg, #e9e6e1 60px, #f2f1ed 0);
+    }
+
+    #becawifi_main .wrapper .content .birthday .heading h4 {
+        display: table-cell;
+        vertical-align: middle;
+        width: 100%;
+    }
+
+    #becawifi_main .wrapper .content .birthday .heading i {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    #becawifi_main .wrapper .content .birthday .wrapper {
+        overflow-x: hidden;
+        background: linear-gradient(90deg, #e9e6e1 60px, #f2f1ed 0);
+        height: 100%;
+        padding-bottom: 40px;
+    }
+
+    #becawifi_main .wrapper .content .birthday .user {
+        text-align: left;
+        display: flex;
+        align-items: center;
+    }
+
+    #becawifi_main .wrapper .content .birthday .user .left {
+        position: relative;
+        /* background: #e9e6e0; */
+        padding: 2px 5px;
+    }
+
+    #becawifi_main .wrapper .content .birthday .user:first-child .left {
+        padding-top: 5px;
+    }
+
+    #becawifi_main .wrapper .content .birthday .user:last-child .left {
+        padding-bottom: 5px;
+    }
+
+    #becawifi_main .wrapper .content .birthday .user .left .avatar {
+        width: 70px;
+        height: 70px;
+        background: #eee;
+        border: 2px solid #fff;
+        margin: 5px;
+        border-radius: 50%;
+        position: relative;
+        z-index: 100;
+        overflow: hidden;
+    }
+
+    #becawifi_main .wrapper .content .birthday .user .meta .name {
+        margin: 0;
+        font-size: 14px;
+        position: relative;
+        z-index: 50;
+        font-weight: bold;
+        color: #ffffff;
+    }
+
+    #becawifi_main .wrapper .content .birthday .user .meta .name span {
+        margin: 0;
+        padding: 5px 25px;
+        padding-left: 30px;
+        padding-top: 5px;
+        display: block;
+        font-weight: bold;
+        text-transform: capitalize;
+        color: #fff;
+        font-size: 14px;
+        background: var(--primary-color);
+        width: calc(100% - 15px);
+        opacity: .8;
+    }
+
+    #becawifi_main .wrapper .content .birthday .user .meta {
+        margin-left: -25px;
+        padding-left: 0;
+        padding-right: 5px;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    #becawifi_main .wrapper .content .birthday .user .meta .date {
+        color: #8295a3;
+        font-size: 12px;
+        font-weight: bold;
+        padding-left: 30px;
+        margin: 5px 0;
+    }
+
+    #becawifi_main .wrapper .content .birthday .user .meta .date i {
+        margin-right: 5px;
+        color: var(--primary-color);
+        font-size: 13px;
+    }
+
+    #becawifi_main .wrapper .content .birthday .user .left .gender {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        text-align: center;
+        z-index: 101;
+    }
+
+    #becawifi_main .wrapper .content .birthday .user .left .gender i {
+        font-size: 12px;
+        line-height: 22px;
+        color: #fff;
+    }
+
+    #becawifi_main .wrapper .content .birthday .user .left .gender.mars {
+        background: #2196F3
+    }
+
+    #becawifi_main .wrapper .content .birthday .user .left .gender.venus {
+        background: #F06292
+    }
+
+    #becawifi_main .wrapper .content .birthday .user .meta .count {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 35px;
+        height: 35px;
+        background: #777;
+        border-radius: 50%;
+        border: 3px solid #fff;
+        text-align: center;
+        line-height: 30px;
+        transform: translateY(-50%);
+    }
+
+    #becawifi_main .wrapper .content .birthday .user .meta .count i {
+        line-height: 30px;
+    }
+
+    #becawifi_main .wrapper .content .birthday .user:not(:last-child) .meta .count:before {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        width: 5px;
+        height: 70px;
+        background: #fff;
+        transform: translateX(-50%);
+        z-index: -1;
+        border-radius: 15px;
+    }
+
+    #becawifi_main .wrapper .content .birthday .user:first-child .meta .count:after {
+        height: 20px;
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        width: 5px;
+        background: #fff;
+        transform: translateX(-50%);
+        z-index: -1;
+        border-radius: 15px;
+    }
+
+    #becawifi_main .wrapper .content .birthday .user .meta .count.coming {
+        background: #4CAF50;
+    }
+
+    #becawifi_main .wrapper .content .birthday .user .meta .count.today {
+        background: #F44336;
+    }
+
+    #becawifi_main .version {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        color: #fafafa;
+        font-size: 12px;
+        margin: 2px 5px;
+    }
+
+
+    .modal {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        visibility: hidden;
+        z-index: 999999;
+    }
+
+    .modal.open {
+        visibility: visible;
+    }
+
+    .modal.open .modal-dialog {
+        z-index: 9999;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    .modal .modal-dialog {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        padding: 20px;
+        background: #fff;
+        width: 90%;
+        min-height: 200px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 18px #00000036;
+        z-index: -1;
+        transform: translate(-50%, -50%) scale(0);
+        transition: .5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        border: 1px solid #eee;
+    }
+
+    .modal .modal-dialog .modal-body {
+        text-align: center;
+    }
+
+    .modal .modal-dialog .modal-body img {
+        width: 35%;
+        margin: 0 auto;
+    }
+
+    .modal .modal-dialog .modal-body h4 {
+        margin: 10px;
+        font-size: 16px;
+        color: #f9b859;
+    }
+
+    .modal .modal-dialog .modal-body p {
+        margin-bottom: 1rem;
+        font-size: 13px;
+        color: #999;
+    }
+
+    .modal .modal-dialog .modal-body button.btn-dismiss {
+        background: #f9b859;
+        padding: 8px 10px;
+        border-radius: 15px;
+        color: #fff;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+    }
+</style>
+<div id="becawifi_main">
+    <div class="wrapper">
+        <div class="top">
+            <div class="meta">
+                <div class="logo">
+                    <img src="/public/checkin/logo_company_checkin.png" alt="">
+                </div>
+                <div class="tool">
+                    <div id="message" class="message">
+                        <i class="fa fa-bell-o" aria-hidden="true"></i>
+                        <span class="badge"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="container">
+                <div id="checkin__wrapper">
+                    <div class="info">
+                        <div id="frame" class="avatar">
+                            <img id="avatar" src="" onerror="this.src='/public/checkin/avatar.png'" alt="">
+                        </div>
+                        <p class="greeting">
+                            <b>Hi <span id="username">Someone</span></b>. <span id="greeting"> Have
+                                a good day!</span>
+                        </p>
+                        <p class="date">
+                            Today, <b id="currentTime"></b>
+                        </p>
+                    </div>
+                    <div class="extra">
+                        <div id="quote" class="quote">
+                            <span class="quote-left"><i class="fa fa-quote-left" aria-hidden="true"></i></span>
+                            <p id="quote-content" class="text noselect"></p>
+                            <p id="quote-author" class="author"></p>
+                            <span class="quote-right"><i class="fa fa-quote-right" aria-hidden="true"></i></span>
+                        </div>
+                        <div class="birthday">
+                            <div class="heading">
+                                <h4>Upcoming Birthdays</h4>
+                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                            </div>
+                            <div id="birthdays" class="wrapper">
+                                <div class="user">
+                                    <div class="left">
+                                        <div class="avatar">
+                                            <img src="/public/checkin/avatar.png"
+                                            onerror="this.src='/public/checkin/avatar.png'" alt="">
+                                        </div>
+                                        <div class="gender mars">
+                                            <i class="fa fa-mars"></i>
+                                        </div>
+                                    </div>
+                                    <div class="meta">
+                                        <div class="name">
+                                            <span>Nickname</span>
+                                            <div class="count today">
+                                                <i class="fa fa-birthday-cake"></i>
+                                            </div>
+                                        </div>
+                                        <div class="date">
+                                            <i class="fa fa-gift" aria-hidden="true"></i>DD-MM-YYYY
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="user">
+                                    <div class="left">
+                                        <div class="avatar">
+                                            <img src="/public/checkin/avatar.png"
+                                            onerror="this.src='/public/checkin/avatar.png'" alt="">
+                                        </div>
+                                        <div class="gender venus">
+                                            <i class="fa fa-venus"></i>
+                                        </div>
+                                    </div>
+                                    <div class="meta">
+                                        <div class="name">
+                                            <span>Nickname</span>
+                                            <div class="count coming">
+                                                02
+                                            </div>
+                                        </div>
+                                        <div class="date">
+                                            <i class="fa fa-gift" aria-hidden="true"></i>DD-MM-YYYY
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="user">
+                                    <div class="left">
+                                        <div class="avatar">
+                                            <img src="/public/checkin/avatar.png"
+                                            onerror="this.src='/public/checkin/avatar.png'" alt="">
+                                        </div>
+                                        <div class="gender venus">
+                                            <i class="fa fa-venus"></i>
+                                        </div>
+                                    </div>
+                                    <div class="meta">
+                                        <div class="name">
+                                            <span>Nickname</span>
+                                            <div class="count">
+                                                <i class="fa fa-check"></i>
+                                            </div>
+                                        </div>
+                                        <div class="date">
+                                            <i class="fa fa-gift" aria-hidden="true"></i>DD-MM-YYYY
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p></p>
+                    <div class="menu">
+                        <div id="touchID" class="touch-zone noselect">
+                            <div id="fingerAnimation" class="cover noselect">
+                                <div class="touch-image-hold noselect"></div>
+                            </div>
+                            <div class="touch-image noselect"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="error__wrapper">
+                    <p>
+                        <h3>Bạn chưa có trong hệ thống chấm công. </h3>
+                    </p>
+                    <p>
+                        Vui lòng liên hệ Admin để biết thêm thông tin chi tiết!
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="notification">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <img id="notification-icon" src="/public/checkin/icon_notification.png" alt="">
+                        <h4 id="notification-heading">You are have a notification!</h4>
+                        <p style="text-align:justify" id="notification-content"></p>
+                        <p id="hidePopup" hidden>
+                            <input id="popup" type="checkbox" style="margin-right:5px">
+                            <span>Don't show this message again</span>
+                        </p>
+                        <button id="btnCloseCheckinAlert" class="btn-dismiss">Close me</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="version">
+            Closed Beta 2.0.1
+        </div>
+    </div>
+</div>
+<script>
+    function currentTime() {
+        var date = new Date();
+        var h = date.getHours();
+        var m = date.getMinutes();
+        h = (h < 10) ? "0" + h: h;
+        m = (m < 10) ? "0" + m: m;
+        var time = h + ":" + m;
+
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0!
+
+        var yyyy = today.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd;
+        }
+        if (mm < 10) {
+            mm = '0' + mm;
+        }
+        var today = dd + '/' + mm + '/' + yyyy;
+
+        document.getElementById("currentTime").innerText = time + ' - ' + today;
+
+        setTimeout(currentTime, 60000);
+    }
+    function autoResize(id, width, callback) {
+        try {
+            const isFF = (navigator.userAgent.toLowerCase().indexOf('firefox') > -1);
+            const bWidth = window.innerWidth;
+            const bHeight = window.innerHeight;
+            let ratio;
+            const el = document.getElementById(id);
+            el.style.width = `${width}px`;
+
+            const eWidth = width;
+            const eHeight = el.offsetHeight;
+            if (bWidth > bHeight || bWidth > 768) {
+                // Desktop
+                ratio = bHeight / eHeight
+                if (isFF) el.css({
+                    '-moz-transform-origin': 'center 0'
+                });
+            } else {
+                // Mobile
+                ratio = bWidth / width
+                if (isFF) el.css({
+                    '-moz-transform-origin': '0 0'
+                });
+                el.style.width = "auto";
+            }
+            ratio = (ratio > 1 ? 1: ratio);
+            if (!isFF) {
+                el.style.zoom = ratio;
+            } else {
+                el.css({
+                    '-moz-transform': 'scale(' + ratio + ')'
+                });
+            }
+            if (callback) callback();
+        } catch (error) {
+            console.error("AUTO-RESIZE ERROR: " + error);
+        }
+    }
+    window.onload = function () {
+        autoResize("becawifi_main", 480, function () {
+            document.getElementById("becawifi_main").style.visibility = "visible";
+            currentTime();
+        });
+    }
+    window.onresize = function () {
+        autoResize("becawifi_main", 480);
+    }
+</script>
+<!-- Quote -->
+<script>
+    if (typeof quotes != 'undifined') {
+        try {
+            if (quotes.length > 0) {
+                const quote = quotes[Math.floor(Math.random() * quotes.length)];
+                document.getElementById("quote-content").innerText = quote.content;
+                document.getElementById("quote-author").innerText = quote.author;
+            }
+        } catch (error) {}
+    }
+</script>
+<!-- Birthday -->
+<script>
+    const today = new Date();
+    if (typeof listBirthday != "undefined") {
+        try {
+            listBirthday.sort((a, b) => {
+                var dayA = new Date(a.birthday).getDate()
+                var dayB = new Date(b.birthday).getDate()
+                return dayB - dayA
+            })
+            let memberBirthToday = listBirthday.find(i => {
+                let dayI = new Date(i.birthday).getDate()
+                return today.getDate() == dayI
+            })
+            if (memberBirthToday) {
+                listBirthday.sort(function (x, y) {
+                    return x._id == memberBirthToday._id ? -1: y._id == memberBirthToday._id ? 1: 0;
+                });
+            }
+            var birthdays = document.getElementById('birthdays');
+            birthdays.innerHTML = "";
+            for (var idx in listBirthday) {
+                var count = '<div class="count"></div>';
+                var gender = '<div class="gender mars"><i class="fa fa-mars"></i></div>';
+                var bday = new Date(listBirthday[idx].birthday);
+                if (today.getDate() == bday.getDate()) {
+                    count = '<div class="count today"><i class="fa fa-birthday-cake"></i></div>';
+                } else if (today.getDate() < bday.getDate()) {
+                    count = '<div class="count coming">' + ((bday.getDate() - today.getDate()) < 10 ? '0' + (bday.getDate() -
+                        today.getDate()): (bday.getDate() - today.getDate())) + '</div>';
+                } else {
+                    count = '<div class="count"><i class="fa fa-check"></i></div>';
+                }
+                if (listBirthday[idx].gender == "Female") {
+                    gender = '<div class="gender venus"><i class="fa fa-venus"></i></div>'
+                }
+
+                birthdays.innerHTML += '<div class="user"><div class="left">' + gender + '<div class="avatar">' +
+                '<img src="' + (listBirthday[idx].avatar ? listBirthday[idx].avatar: '') +
+                '" onerror="this.src=`/public/checkin/avatar.png`" alt="">' +
+                '</div></div><div class="meta"><div class="name">' +
+                '<span>' + (listBirthday[idx].nickname ? listBirthday[idx].nickname: listBirthday[idx].name) +
+                '</span>' +
+                count +
+                '</div><div class="date"><i class="fa fa-gift" aria-hidden="true"></i>' + listBirthday[idx].birthday.split("-").reverse().join("/") +
+                '</div></div></div>';
+            }
+        } catch (error) {}
+    }
+</script>
+<!-- Employee -->
+<script>
+    if (typeof employee != "undefined" && Object.keys(employee).length) {
+        document.getElementById('avatar').innerText = employee.avatar;
+        document.getElementById('username').innerText = (employee.nickname ? employee.nickname: employee.name)
+
+        if (employee.avatar) {
+            document.getElementById('avatar').setAttribute("src", employee.avatar)
+        }
+
+        var birthday = new Date(employee.birthday);
+
+        if (today.getDate() == birthday.getDate() && today.getMonth() == birthday.getMonth()) {
+            document.getElementById('frame').style.backgroundImage = "url(/public/checkin/frame_birthday.png)"
+            document.getElementById('greeting').innerHTML = "Whoohoo! Today is your birthday."
+        }
+    } else {
+        if (window.location.href.indexOf("mac") != -1) {
+            document.getElementById('checkin__wrapper').innerHTML = "";
+            document.getElementById('error__wrapper').style.display = "block";
+        }
+    }
+
+</script>
+<!-- TouchId -->
+<script>
+    var timeout = 0;
+    var countdown = 1;
+    var touchID = document.getElementById("touchID")
+    var finger = document.getElementById("fingerAnimation")
+
+    touchID.addEventListener('touchstart', function (event) {
+        repeat(event, countdown)
+    })
+    touchID.addEventListener('mouseup', function (event) {
+        repeat(event, countdown)
+    })
+    touchID.addEventListener('mousedown', function (event) {
+        repeat(event, countdown)
+    })
+    function dateCompare(time1, time2) {
+        var t1 = new Date();
+        var parts = time1.split(":");
+        t1.setHours(parts[0], parts[1], 0, 0);
+        var t2 = new Date();
+        parts = time2.split(":");
+        t2.setHours(parts[0], parts[1], 0, 0);
+        // returns 1 if greater, -1 if less and 0 if the same
+        if (t1.getTime() > t2.getTime()) return 1;
+        if (t1.getTime() < t2.getTime()) return -1;
+        return 0;
+    }
+    function repeat(event, countdown) {
+
+        finger.style.height = "80px";
+        finger.style.transition = "0.3s";
+        if (countdown == 0) {
+            if (window.location.href.indexOf("mac") != -1) {
+                if (typeof employee != undefined) {
+                    //if (typeof window.challenge != "undefined") {
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.open("POST", "/sp/checkin");
+                    xmlhttp.setRequestHeader("Content-Type", "application/json");
+                    xmlhttp.send(JSON.stringify({
+                        "bId": employee.bId,
+                        "eId": employee._id
+                    }));
+                    xmlhttp.onreadystatechange = function () {
+                        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                            var res = JSON.parse(xmlhttp.responseText);
+                            if (res.status) {
+                                openCheckinAlert({
+                                    header: "Bạn đã " + (res.message === "checkin" ? "checkin thành công.": "checkout thành công."),
+                                    msg: (status !== "" ? ("Hôm nay bạn đã đi làm " + status + ". "): "")
+                                    + (res.message === "checkout" ? "\nSố giờ làm hôm nay của bạn là: " + res.hoursOfWork: ""),
+                                    textAlign: "center"
+                                }, function () {
+                                    becawifi_login_hotspot();
+                                })
+                            }
+                        }
+                    };
+
+                    countdown = false;
+                    clearTimeout(timeout);
+                    event.stopPropagation();
+                    return;
+                    //}
+                    // else {
+                    //     openCheckinAlert({
+                    //         header: "Truy cập trái phép",
+                    //         msg: "Vui lòng kết nối sóng Wifi.",
+                    //         textAlign: "center"
+                    //     }, function () { })
+                    // }
+                }
+            } else {
+                openCheckinAlert({
+                    header: "Bạn đã checkin/checkout thành công!",
+                    msg: "Checkin/Checkout vào lúc nào thì chúng tôi không biết.",
+                    textAlign: "center"
+                }, function () {})
+            }
+        }
+        timeout = setTimeout(function () {
+            countdown--;
+            repeat(event, countdown);
+        }, 200)
+    }
+    touchID.addEventListener('touchend', function (event) {
+        clearTimeout(timeout);
+        if (countdown > 0 && countdown != false) {
+            finger.style.height = "0px";
+        }
+    })
+    touchID.addEventListener('mouseup', function (event) {
+        clearTimeout(timeout);
+        if (countdown > 0 && countdown != false) {
+            finger.style.height = "0px";
+        }
+    })
+    touchID.addEventListener('mouseleave', function (event) {
+        clearTimeout(timeout);
+        if (countdown > 0 && countdown != false) {
+            finger.style.height = "0px";
+        }
+    })
+</script>

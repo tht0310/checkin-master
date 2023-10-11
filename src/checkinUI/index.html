@@ -1,0 +1,79 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta id="vp" name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1"><title>BecaCheckin - VNTTS</title><meta property="og:type" content="website"><meta property="og:url" content="https://becawifi.vn"/><meta property="og:title" content="BecaCheckin PORTAL"/><meta property="og:image" content="/assets/images/full.jpg"/><meta property="og:description" content="Checkin platform"/><meta name="description" content="Checkin platform"><meta name="robots" content="all,follow"><link rel="shortcut icon" href="/favicon.ico"><link rel="manifest" href="/assets/manifest.json"/><link rel="icon" href="/favicon.ico"><link href="/assets/css/main.css" rel="stylesheet"></head><body><script>window.checkDebug = () => {
+            // var minimalUserResponseInMiliseconds = 100;
+            // var before = new Date().getTime();
+            // debugger;
+            // var after = new Date().getTime();
+            // if (after - before > minimalUserResponseInMiliseconds) {
+            //     window.isDebug = true
+            // }
+        }
+        window.checkDebug()
+        function getPWADisplayMode() {
+            const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+            if (document.referrer.startsWith('android-app://')) {
+                return 'twa';
+            } else if (navigator.standalone || isStandalone) {
+                return 'standalone';
+            }
+            return 'browser';
+        }
+        window.onload = () => {
+            window.checkVersion = (init) => {
+                try {
+                    const checkTime = sessionStorage.getItem("checkTime") || 0
+                    if (checkTime.toString() !== new Date().getHours().toString()) {
+                        sessionStorage.setItem("checkTime", new Date().getHours())
+                        fetch('/assets/version.txt')
+                            .then((response) => {
+                                if (response.ok)
+                                    return response.text()
+                                else return false
+                            })
+                            .then(data => {
+                                try {
+                                    if (data) {
+                                        const { version, forceRefesh, buildDate } = JSON.parse(data)
+                                        window.buildDate = buildDate
+                                        console.log("version:", version, " - ", buildDate)
+                                        const curVer = localStorage.getItem("version")
+                                        if (version !== curVer) {
+                                            localStorage.setItem("version", version)
+                                            forceRefesh && window.location.reload()
+                                        }
+                                    }
+                                } catch (error) {
+                                    console.log(error);
+                                }
+                            });
+                    }
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+            checkVersion(true)
+            document.getElementById("root").addEventListener("mousedown", () => checkVersion());
+
+            window.onPwad = getPWADisplayMode() === "standalone"
+            window.fullscreen = localStorage.getItem("fullscreen")
+
+            if (!window.fullscreen && window.onPwad) {
+                document.getElementById('root').addEventListener(
+                    'click',
+                    function () {
+                        if (!window.fullscreen) {
+                            window.fullscreen = true
+                            localStorage.setItem("fullscreen", true)
+                            document.body.requestFullscreen();
+                        }
+                    },
+                    false,
+                );
+            }
+        }
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent Chrome 67 and earlier from automatically showing the prompt
+            e.preventDefault();
+            // Stash the event so it can be triggered later.
+            window.deferredPrompt = e
+        });</script><div id="root"></div><script src="/assets/js/main.nodelib-1puj48k.js"></script><script src="/assets/js/main.nodelib-10ofts0.js"></script><script src="/assets/js/main.nodelib-1igud87.js"></script><script src="/assets/js/main.nodelib-mae4fs.js"></script><script src="/assets/js/main.nodelib-qmp096.js"></script><script src="/assets/js/main.nodelib-mrlkkj.js"></script><script src="/assets/js/main.nodelib-1hyujbb.js"></script><script src="/assets/js/main.nodelib-10twzov.js"></script><script src="/assets/js/main.nodelib-t1sy1z.js"></script><script src="/assets/js/main.nodelib-1qw3vk4.js"></script><script src="/assets/js/main.nodelib-k4w13.js"></script><script src="/assets/js/main.nodelib-a5qqc5.js"></script><script src="/assets/js/main.nodelib-10l2jyq.js"></script><script src="/assets/js/main.nodelib-1q6zme3.js"></script><script src="/assets/js/main.nodelib-uew991.js"></script><script src="/assets/js/main.nodelib-jzxkj.js"></script><script src="/assets/js/main.nodelib-j6rtjs.js"></script><script src="/assets/js/main.nodelib-1q6u7i0.js"></script><script src="/assets/js/main.nodelib-klusre.js"></script><script src="/assets/js/main.nodelib-eebpaf.js"></script><script src="/assets/js/main.nodelib-1q6yl5j.js"></script><script src="/assets/js/main.nodelib-q8wxtl.js"></script><script src="/assets/js/main.nodelib-1mhhqsi.js"></script><script src="/assets/js/main.nodelib-1jx0f9l.js"></script><script src="/assets/js/main.nodelib-1bzeas0.js"></script><script src="/assets/js/main.nodelib-1v8zllb.js"></script><script src="/assets/js/main.nodelib-1q6yxtj.js"></script><script src="/assets/js/main.nodelib-rq9nyn.js"></script><script src="/assets/js/main.nodelib-ywcf1p.js"></script><script src="/assets/js/main.nodelib-krcv1u.js"></script><script src="/assets/js/main.nodelib-1qky375.js"></script><script src="/assets/js/main.nodelib-1d98kn1.js"></script><script src="/assets/js/main.nodelib-1h58ut.js"></script><script src="/assets/js/main.nodelib-1jymm9c.js"></script><script src="/assets/js/main.nodelib-1tog4hv.js"></script><script src="/assets/js/main.nodelib-4rmcf1.js"></script><script src="/assets/js/main.nodelib-1wgzt3c.js"></script><script src="/assets/js/main.nodelib-g955ar.js"></script><script src="/assets/js/main.nodelib-fjb0kw.js"></script><script src="/assets/js/main.nodelib-zjwurr.js"></script><script src="/assets/js/main.nodelib-cbzxuj.js"></script><script src="/assets/js/main.js"></script></body></html>

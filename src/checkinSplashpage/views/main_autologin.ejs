@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+	<title>JWifi Splashpage</title>
+	<style>*{margin: 0 auto;}</style>  
+    <script>
+        var type_ap    = '<%= type_ap %>'; //chilli|motorola|demo
+        var mac_device = '<%= mac_device %>';
+        var mac_ap     = '<%= mac_ap %>';
+        var username   = '<%= username %>'; 
+        var password   = '<%= password %>';
+        var jwifi_clickUrl = jwifi_friendly_clickUrl=  '<%- redirectlink %>';
+        
+        window.jwifi_setRedirectPage = function (url, callback) {
+            r = "&rd=" + Math.floor(1000 + Math.random() * 9000);
+            // if(typeof url == "string") jwifi_clickUrl = jwifi_clickUrl + "&landingpage=" + encodeURIComponent(url);' + endLine;
+            (new Image()).src = "/setredirectpage/?mac_device=" + mac_device + "&redirecturl=" + encodeURIComponent(jwifi_clickUrl) + "&" + r;
+            if (typeof callback == "function") callback();
+        };
+    </script>
+    <script src="/assets/js/jwifi_main.js"></script>
+    <script src="/assets/js<%= mode %>/<%= type_ap %>.js"></script>  
+</head>
+<body>
+<script>
+    window.onload = function() {
+        jwifi_login_hotspot();
+    }
+</script>
+
+<style> .vntt-loading { display: none }  .loading-connect {  position: fixed;  z-index: 99999;  top: 0;  left: 0;  width: 100%;  height: 100%;  background-color: #eee;   }   .loader{  display: inline-block;  position: absolute;  top: 50%;  left: 50%;  transform: translate(-50%,-50%);  z-index: 9999;   }   .loader .water {  position: relative;  margin: auto;  width: 200px;  height: 200px;  background: skyblue;  border-radius: 50%;  border: 5px solid #fff;  overflow: hidden;   }   .loader .water .wave {  position: relative;  top: 0;  left: 0;  transform: translate(-25%, -100%);  width: 400px;  height: 400px;  animation-name: loading;  animation-duration: 5s;  animation-fill-mode: forwards;   }   .loader .water .wave:before,   .loader .water .wave:after {  position: absolute;  top: 0;  left: 0;  content: "";  width: 100%;  height: 100%;  border-radius: 40%;  transform: rotate(0deg);  animation-name: wave;  animation-fill-mode: forwards;  animation-iteration-count: infinite;   }   .loader .water .wave:before {  background: rgba(255, 255, 255, 0.3);  animation-duration: 10s;   }   .loader .water .wave:after {  background: rgba(255, 255, 255, 0.7);  animation-duration: 8s;   }   .loader .text-loading {  margin: 20px 0;  font-size: 1.5rem;  color: #555;   }   @keyframes loading {  0% {      transform: translate(-25%, -50%);  }  5% {      transform: translate(-25%, -55%);  }  10% {      transform: translate(-25%, -60%);  }  25% {      transform: translate(-25%, -65%);  }  50% {      transform: translate(-25%, -75%);  }  75% {      transform: translate(-25%, -75%);  }  80% {      transform: translate(-25%, -90%);  }  90% {      transform: translate(-25%, -100%);  }   }   @-webkit-keyframes loading {  0% {      transform: translate(-25%, -50%);  }  5% {      transform: translate(-25%, -55%);  }  10% {      transform: translate(-25%, -60%);  }  25% {      transform: translate(-25%, -65%);  }  50% {      transform: translate(-25%, -75%);  }  75% {      transform: translate(-25%, -75%);  }  80% {      transform: translate(-25%, -90%);  }  90% {      transform: translate(-25%, -100%);  }   }   @keyframes wave {  0% {      transform: rotate(0deg);  }  100% {      transform: rotate(360deg);  }   }   @-webkit-keyframes wave {  0% {      transform: rotate(0deg);  }  100% {      transform: rotate(360deg);  }   }</style>
+<div class="vntt-loading loading-connect">
+    <div class="loader">
+        <div class="water">
+            <div class="wave"></div>
+        </div>
+        <h4 class="text-loading">Vui lòng đợi trong giây lát...</h4>
+    </div>
+</div>
+</body>
+</html>

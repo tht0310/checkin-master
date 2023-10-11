@@ -1,0 +1,17 @@
+<html><head><body onload="setTimeout(goto_link,500);">Redirecting... <br><br>Click <a id='link' href='<%=landingPage %>'>here</a> if the page does not redirect.
+
+<script>
+function goto_link() { 
+    debugger; 
+    setTimeout(function() { 
+        if("<%=whenError %>") { 
+            window.location.href = "<%=whenError %>"; 
+            }
+        else { 
+            window.location.href = "http://becamex.com.vn/" 
+        } 
+    }, 2000);
+
+    document.getElementById('link').click(); 
+}
+</script></body></html>
